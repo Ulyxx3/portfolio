@@ -10,16 +10,16 @@ const ProjectsPage = ({ onBack }) => {
             completion: 95,
             tech: ['React', 'JavaScript', 'CSS'],
             github: 'https://github.com/Ulyxx3/VersuSite',
-            demo: null,
+            demo: 'https://ulyxx3.github.io/VersuSite/',
             color: '#FF8C00'
         },
         {
             name: 'POKEDEXIA',
             description: 'Beautiful Pokédex application for browsing Pokemon data',
-            completion: 90,
+            completion: 100,
             tech: ['JavaScript', 'HTML', 'CSS'],
             github: 'https://github.com/Ulyxx3/Pokedexia',
-            demo: null,
+            demo: 'https://ulyxx3.github.io/Pokedexia/',
             color: '#00FF00'
         },
         {
@@ -28,13 +28,13 @@ const ProjectsPage = ({ onBack }) => {
             completion: 100,
             tech: ['React', 'Framer Motion', 'CSS'],
             github: 'https://github.com/Ulyxx3/portfolio',
-            demo: 'http://localhost:5173/portfolio/',
+            demo: null,
             color: '#4169E1'
         },
         {
             name: 'CLIMBING GAMBLING',
             description: 'Game development project with climbing mechanics',
-            completion: 60,
+            completion: 10,
             tech: ['Godot', 'GDScript'],
             github: null,
             demo: null,

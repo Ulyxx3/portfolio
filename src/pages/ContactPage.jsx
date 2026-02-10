@@ -18,14 +18,37 @@ const ContactPage = ({ onBack }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate form submission
-        setStatus('TRANSMISSION SENT');
-        setTimeout(() => {
-            setFormData({ name: '', email: '', message: '' });
-            setStatus('');
-        }, 3000);
+        setStatus('TRANSMITTING...');
+
+        try {
+            const response = await fetch('https://formspree.io/f/xanyrgvk', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message
+                })
+            });
+
+            if (response.ok) {
+                setStatus('TRANSMISSION SUCCESSFUL');
+                setTimeout(() => {
+                    setFormData({ name: '', email: '', message: '' });
+                    setStatus('');
+                }, 5000);
+            } else {
+                setStatus('TRANSMISSION FAILED - RETRY');
+                setTimeout(() => setStatus(''), 5000);
+            }
+        } catch (error) {
+            setStatus('CONNECTION ERROR - CHECK NETWORK');
+            setTimeout(() => setStatus(''), 5000);
+        }
     };
 
     return (
@@ -102,9 +125,21 @@ const ContactPage = ({ onBack }) => {
                             style={{
                                 marginTop: '1rem',
                                 padding: '1rem',
-                                backgroundColor: 'rgba(0, 255, 0, 0.1)',
-                                border: '2px solid #00FF00',
-                                color: '#00FF00',
+                                backgroundColor: status.includes('SUCCESSFUL')
+                                    ? 'rgba(0, 255, 0, 0.1)'
+                                    : status.includes('FAILED') || status.includes('ERROR')
+                                        ? 'rgba(255, 0, 0, 0.1)'
+                                        : 'rgba(255, 140, 0, 0.1)',
+                                border: status.includes('SUCCESSFUL')
+                                    ? '2px solid #00FF00'
+                                    : status.includes('FAILED') || status.includes('ERROR')
+                                        ? '2px solid #FF0000'
+                                        : '2px solid #FF8C00',
+                                color: status.includes('SUCCESSFUL')
+                                    ? '#00FF00'
+                                    : status.includes('FAILED') || status.includes('ERROR')
+                                        ? '#FF0000'
+                                        : '#FF8C00',
                                 fontFamily: 'var(--font-header)',
                                 fontSize: '1.25rem'
                             }}

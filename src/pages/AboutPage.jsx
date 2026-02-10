@@ -6,13 +6,13 @@ const AboutPage = ({ onBack }) => {
     const [activeSection, setActiveSection] = useState('bio');
 
     const skills = [
-        { name: 'React', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'CSS/UI Design', level: 88 },
-        { name: 'Node.js', level: 75 },
+        { name: 'React', level: 70 },
+        { name: 'JavaScript', level: 75 },
+        { name: 'CSS', level: 65 },
+        { name: 'Node.js', level: 55 },
         { name: 'Python', level: 70 },
-        { name: 'Git', level: 85 },
-        { name: 'GDScript', level: 85 },
+        { name: 'Git', level: 75 },
+        { name: 'GDScript', level: 30 },
     ];
 
     const renderContent = () => {
@@ -22,14 +22,12 @@ const AboutPage = ({ onBack }) => {
                     <div>
                         <h2 style={{ marginBottom: '1.5rem', color: '#FFFFFF' }}>OPERATOR PROFILE</h2>
                         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1rem' }}>
-                            Elite-level developer specializing in front-end operations and tactical UI implementations.
-                            Deployed across multiple mission-critical projects with a focus on user experience optimization
-                            and performance enhancement.
+                            Je suis développeur, designer et animateur 2D, j'ai crée des sites qu'on peut retrouver sur ce portfolio.
+                            J'ai aussi crée des animations 2D, des vidéos et des projets de jeux vidéos.
                         </p>
                         <p style={{ fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '1rem' }}>
-                            Primary directive: Creating exceptional web experiences that combine aesthetic precision
-                            with functional excellence. Secondary capabilities include full-stack development and
-                            system architecture design.
+                            Mon but est de crée des sites web et des animations 2D de qualité, avec un design moderne et professionnel.
+                            Je suis aussi à la recherche de projets pour développer mes compétences et mon expérience.
                         </p>
                         <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: 'rgba(255, 140, 0, 0.1)', border: '2px solid #FF8C00' }}>
                             <h3 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>STATUS: ACTIVE</h3>
