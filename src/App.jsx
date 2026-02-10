@@ -3,105 +3,95 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Socials from './components/Socials';
+import bgImage from './assets/background.jpg';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
 
   const menuItems = [
-    { id: 'home', label: 'HOME' },
-    { id: 'projects', label: 'PROJECTS' },
-    { id: 'socials', label: 'SOCIALS' },
+    { id: 'home', label: 'HOME', desc: 'OPERATOR STATUS' },
+    { id: 'projects', label: 'PROJECTS', desc: 'MISSION MANIFEST' },
+    { id: 'socials', label: 'SOCIALS', desc: 'COMMS FREQUENCY' },
   ];
 
   return (
-    <div className="relative min-h-screen text-repo-blue font-rajdhani overflow-hidden selection:bg-repo-orange/30">
+    <div className="relative h-screen w-screen overflow-hidden bg-black font-rajdhani text-white selection:bg-repo-orange/30">
 
-      {/* Global Effects */}
-      <div className="scanlines" />
-      <div className="vignette" />
+      {/* Background Image with Heavy Overlay */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-40"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
+      <div className="absolute inset-0 z-0 bg-black/70" /> {/* Darken layer */}
 
-      {/* Background Grid */}
-      <div className="fixed inset-0 bg-[linear-gradient(rgba(18,18,18,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(18,18,18,0.5)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
+      {/* Scanlines & Vignette */}
+      <div className="scanlines z-50 pointer-events-none" />
+      <div className="vignette z-40 pointer-events-none" />
 
-      <main className="container mx-auto h-screen p-8 flex flex-col md:flex-row gap-8 relative z-10">
+      {/* Main Container */}
+      <main className="relative z-10 w-full h-full p-8 md:p-12 flex flex-col md:flex-row gap-8 items-start justify-center">
 
-        {/* Left Menu Column */}
-        <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col gap-12 pt-12">
+        {/* Left Panel: Navigation */}
+        <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col gap-8 h-full justify-center">
 
-          {/* Header Title */}
-          <div>
-            <h1 className="text-6xl font-quantico font-bold text-repo-orange tracking-tighter opacity-90">
-              ULYX
-              <span className="text-repo-blue">.X3</span>
+          <div className="mb-8">
+            <h1 className="text-6xl font-quantico font-bold text-white tracking-tighter">
+              ULYX.X3
             </h1>
-            <div className="h-1 w-24 bg-repo-orange mt-2" />
+            <div className="text-repo-orange font-mono text-sm tracking-widest mt-2">SYSTEM: ONLINE</div>
           </div>
 
-          {/* Navigation Menu */}
-          <nav className="flex flex-col gap-4">
-            <h2 className="text-3xl font-quantico font-bold text-repo-orange mb-4 tracking-widest">
-              MENU
-            </h2>
+          <nav className="flex flex-col gap-6">
             {menuItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`
-                  text-left text-2xl font-bold py-2 px-6 transition-all duration-200 clip-path-polygon
+                className={`group text-left transition-all duration-300 relative pl-4 border-l-4 
                   ${activeTab === item.id
-                    ? 'bg-repo-blue text-black border-l-4 border-repo-orange translate-x-4'
-                    : 'text-gray-500 hover:text-white hover:translate-x-2'
-                  }
-                `}
-                style={{
-                  clipPath: activeTab === item.id ? 'polygon(0 0, 95% 0, 100% 100%, 0% 100%)' : 'none'
-                }}
+                    ? 'border-repo-orange text-repo-orange translate-x-4'
+                    : 'border-white/20 text-slate-400 hover:text-white hover:border-white hover:translate-x-2'
+                  }`}
               >
-                {item.label}
+                <div className="text-4xl font-quantico font-bold uppercase tracking-wide">
+                  {item.label}
+                </div>
+                <div className={`text-xs font-mono tracking-widest transition-colors ${activeTab === item.id ? 'text-white' : 'text-slate-600 group-hover:text-slate-400'}`}>
+                  // {item.desc}
+                </div>
               </button>
             ))}
           </nav>
 
-          {/* Status / Info */}
-          <div className="mt-auto opacity-60">
-            <div className="border border-repo-blue/30 p-4">
-              <h3 className="text-repo-orange font-quantico mb-2">SYSTEM STATUS</h3>
-              <div className="flex justify-between text-sm">
-                <span>ONLINE</span>
-                <span className="text-green-500">ACTIVE</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span>VERSION</span>
-                <span>2024.1.0</span>
-              </div>
-            </div>
-          </div>
+          <footer className="mt-auto text-xs text-slate-600 font-mono">
+            <div>BUILD: 2024.1.0</div>
+            <div>SECURE CONNECTION ESTABLISHED</div>
+          </footer>
         </div>
 
-        {/* Right Content Column */}
-        <div className="flex-1 relative border-l border-white/5 bg-black/40 backdrop-blur-sm p-8 md:p-12 overflow-hidden">
+        {/* Right Panel: Content Window */}
+        <div className="flex-1 w-full h-full max-h-[80vh] bg-black/60 backdrop-blur-md border border-white/10 flex flex-col relative overflow-hidden shadow-2xl">
 
-          {/* Decorative Top Bar */}
-          <div className="absolute top-0 left-0 w-full h-16 border-b border-white/10 flex items-center justify-between px-8 bg-black/60">
-            <span className="text-xl font-quantico text-repo-orange">
-              {activeTab.toUpperCase()} // SECTION
-            </span>
-            <div className="flex gap-2">
-              <div className="w-4 h-4 bg-repo-blue opacity-50" />
-              <div className="w-4 h-4 bg-repo-orange opacity-50" />
+          {/* Window Header */}
+          <div className="h-14 border-b border-white/10 bg-black/40 flex items-center justify-between px-6 shrink-0">
+            <div className="flex items-center gap-2 text-repo-orange font-quantico tracking-wider">
+              <div className="w-2 h-2 bg-repo-orange animate-pulse" />
+              <span className="uppercase">{activeTab} // DATA_VIEW</span>
+            </div>
+            <div className="flex gap-1">
+              <div className="w-8 h-1 bg-white/20" />
+              <div className="w-2 h-1 bg-repo-blue" />
             </div>
           </div>
 
-          {/* Content Area */}
-          <div className="mt-16 h-[calc(100%-4rem)] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-repo-orange scrollbar-track-black">
+          {/* Window Content (Scrollable) */}
+          <div className="flex-1 overflow-y-auto p-6 md:p-8 scrollbar-thin scrollbar-thumb-repo-orange scrollbar-track-black/20">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="h-full"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
               >
                 {activeTab === 'home' && <Hero />}
                 {activeTab === 'projects' && <Projects />}
