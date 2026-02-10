@@ -1,39 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'Outfit', sans-serif;
-  color-scheme: dark light;
+  font-family: 'Rajdhani', sans-serif;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #0f172a;
-  /* slate-900 */
-  color: white;
+  background-color: #050505;
+  color: #e0e0e0;
   overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 #root {
   width: 100%;
-  margin: 0 auto;
-}
-
-@layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
-  }
-
-  .card-glow:hover {
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-  }
+  height: 100vh;
+  overflow: hidden;
+  /* Prevent body scroll if we want a fixed app feel */
 }
 
 /* Custom Scrollbar */
@@ -46,12 +36,41 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(14, 165, 233, 0.5);
-  /* sky-500/50 */
-  border-radius: 9999px;
+  background-color: #ff9900;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #38bdf8;
-  /* sky-400 */
+  background-color: #ffcc00;
+}
+
+/* CRT Scanline Effect */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2));
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.6;
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+  z-index: 40;
 }
