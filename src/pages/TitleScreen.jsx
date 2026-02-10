@@ -26,7 +26,7 @@ const TitleScreen = ({ onNavigate }) => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                    ULYX.X3
+                    ULYXX3
                 </motion.h1>
 
                 <motion.div
