@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Twitter, Instagram, Pin, MessageSquare, Twitch, Youtube, Gamepad2, Music, Github, Globe, Coffee, List } from 'lucide-react';
-import { SiTiktok, SiSteam, SiBluesky, SiKofi } from 'simple-icons-v14'; // Note: lucide doesn't have all icons, using custom SVGs or fallback
+import { Twitter, Instagram, MessageSquare, Twitch, Youtube, Gamepad2, Music, Github, Coffee, List } from 'lucide-react';
+import { SiPinterest, SiTiktok, SiSteam, SiBluesky, SiKofi } from 'react-icons/si';
 
 // Since lucide doesn't have all brand icons, I'll create a helper for custom SVGs if needed, 
 // or I will use text/generic icons where specific ones are missing, 
@@ -11,19 +11,19 @@ import { SiTiktok, SiSteam, SiBluesky, SiKofi } from 'simple-icons-v14'; // Note
 const socialLinks = [
     { name: 'Twitter', url: 'https://twitter.com/Ulyxx31', icon: Twitter, color: '#1DA1F2' },
     { name: 'Instagram', url: 'https://www.instagram.com/ulyxx3', icon: Instagram, color: '#E1306C' },
-    { name: 'Pinterest', url: 'https://www.pinterest.fr/ulyxx3/', icon: Pin, color: '#BD081C' },
-    { name: 'TikTok', url: 'https://www.tiktok.com/@ulyxx3', icon: Music, color: '#00F2EA' }, // Using Music as proxy
+    { name: 'Pinterest', url: 'https://www.pinterest.fr/ulyxx3/', icon: SiPinterest, color: '#BD081C' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@ulyxx3', icon: SiTiktok, color: '#00F2EA' },
     { name: 'Reddit', url: 'https://www.reddit.com/user/ConversationMore4995', icon: MessageSquare, color: '#FF4500' },
     { name: 'Twitch', url: 'https://www.twitch.tv/ulyxx3_tv', icon: Twitch, color: '#9146FF' },
     { name: 'Discord', url: 'https://discord.gg/spbY6W6', icon: Gamepad2, color: '#5865F2' },
     { name: 'YouTube', url: 'https://www.youtube.com/@ulyxx3', icon: Youtube, color: '#FF0000' },
-    { name: 'Steam', url: 'https://steamcommunity.com/profiles/76561199087202006', icon: Gamepad2, color: '#171a21' },
+    { name: 'Steam', url: 'https://steamcommunity.com/profiles/76561199087202006', icon: SiSteam, color: '#171a21' },
     { name: 'Spotify', url: 'https://open.spotify.com/user/dgf8lor4hfrja7en32jytw2n3', icon: Music, color: '#1DB954' },
     { name: 'GitHub', url: 'https://github.com/Ulyxx3', icon: Github, color: '#ffffff' },
-    { name: 'Bluesky', url: 'https://bsky.app/profile/ulyxx3.bsky.social', icon: Globe, color: '#0560ff' },
+    { name: 'Bluesky', url: 'https://bsky.app/profile/ulyxx3.bsky.social', icon: SiBluesky, color: '#0560ff' },
     { name: 'VGen', url: 'https://vgen.co/ulyxx3/', icon: Coffee, color: '#ff6b6b' },
-    { name: 'Backloggd', url: 'https://backloggd.com/u/Ulyxx3/', icon: List, color: '#4a90e2' }, // Proxy icon
-    { name: 'Ko-fi', url: 'https://ko-fi.com/ulyxx3', icon: Coffee, color: '#FF5E5B' },
+    { name: 'Backloggd', url: 'https://backloggd.com/u/Ulyxx3/', icon: List, color: '#4a90e2' },
+    { name: 'Ko-fi', url: 'https://ko-fi.com/ulyxx3', icon: SiKofi, color: '#FF5E5B' },
 ];
 
 const Socials = () => {
