@@ -12,6 +12,7 @@ const AboutPage = ({ onBack }) => {
         { name: 'Node.js', level: 75 },
         { name: 'Python', level: 70 },
         { name: 'Git', level: 85 },
+        { name: 'GDScript', level: 85 },
     ];
 
     const renderContent = () => {
@@ -61,10 +62,10 @@ const AboutPage = ({ onBack }) => {
                         <h2 style={{ marginBottom: '1.5rem', color: '#FFFFFF' }}>MISSION TIMELINE</h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             {[
-                                { year: '2024', title: 'SENIOR OPERATIONS', desc: 'Leading tactical web development missions' },
-                                { year: '2022', title: 'DEPLOYMENT SPECIALIST', desc: 'Full-stack development and architecture' },
-                                { year: '2020', title: 'OPERATIVE TRAINING', desc: 'Advanced web technologies certification' },
-                                { year: '2018', title: 'FIELD DEPLOYMENT', desc: 'Initial front-end operations' },
+                                { year: '2026', title: 'GDScript', desc: 'Game development' },
+                                { year: '2025', title: 'JS/REACT', desc: 'Advanced web development' },
+                                { year: '2024', title: 'HTML/CSS', desc: 'Basic web development' },
+                                { year: '2023', title: 'DISCORD BOT DEVELOPMENT', desc: 'Discord bot development' },
                             ].map((item, index) => (
                                 <motion.div
                                     key={index}

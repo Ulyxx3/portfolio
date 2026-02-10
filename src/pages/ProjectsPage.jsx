@@ -35,7 +35,7 @@ const ProjectsPage = ({ onBack }) => {
             name: 'CLIMBING GAMBLING',
             description: 'Game development project with climbing mechanics',
             completion: 60,
-            tech: ['Game Dev', 'JavaScript'],
+            tech: ['Godot', 'GDScript'],
             github: null,
             demo: null,
             color: '#9370DB'
