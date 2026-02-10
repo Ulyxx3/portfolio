@@ -85,7 +85,7 @@ function App() {
       </div>
 
       {/* 2. CONTENT WINDOW (Right of Menu) */}
-      <div className="absolute top-1/2 left-[380px] md:left-[450px] right-8 md:right-16 -translate-y-1/2 h-[80vh] z-20 flex flex-col bg-black/80 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden">
+      <div className="absolute top-1/2 left-[400px] md:left-[480px] right-10 md:right-24 -translate-y-1/2 h-[85vh] z-20 flex flex-col bg-black/80 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden rounded-sm">
 
         {/* Window Header Bar */}
         <div className="h-12 border-b border-white/10 bg-gradient-to-r from-black via-slate-900 to-black flex items-center justify-between px-6 shrink-0 relative">
