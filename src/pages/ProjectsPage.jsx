@@ -28,7 +28,7 @@ const ProjectsPage = ({ onBack }) => {
             completion: 100,
             tech: ['React', 'Framer Motion', 'CSS'],
             github: 'https://github.com/Ulyxx3/portfolio',
-            demo: null,
+            demo: 'https://ulyxx3.github.io/portfolio/',
             color: '#4169E1'
         },
         {
@@ -43,14 +43,14 @@ const ProjectsPage = ({ onBack }) => {
         {
             name: 'OFFSHADES',
             description: 'Shader pack for Minecraft',
-            completion: 100,
+            completion: 30,
             tech: ['GLSL'],
             github: 'https://github.com/Ulyxx3/OffShades',
             demo: null,
             color: '#00FA9A'
         },
         {
-            name: 'OBS STREAMMUSICVIEWER',
+            name: 'OBS STREAM_MUSIC_VIEWER',
             description: 'Local extension for OBS for displaying your actual music with Windows Media Control',
             completion: 100,
             tech: ['Python', 'HTML', 'CSS', 'C#', 'PowerShell'],
