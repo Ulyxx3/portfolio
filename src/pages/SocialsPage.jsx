@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Twitter, Instagram, MessageSquare, Music, Youtube, Gamepad2, Coffee, List } from 'lucide-react';
 import { SiPinterest, SiTiktok, SiSteam, SiBluesky, SiKofi, SiTwitch } from 'react-icons/si';
 import REPOButton from '../components/REPOButton';
 
 const SocialsPage = ({ onBack }) => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
     const socials = [
         {
             platform: 'GITHUB',
@@ -113,6 +115,32 @@ const SocialsPage = ({ onBack }) => {
         },
     ];
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setSelectedIndex((prev) => {
+                    const next = prev < socials.length - 1 ? prev + 1 : 0;
+                    document.getElementById(`social-${next}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return next;
+                });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setSelectedIndex((prev) => {
+                    const next = prev > 0 ? prev - 1 : socials.length - 1;
+                    document.getElementById(`social-${next}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return next;
+                });
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.open(socials[selectedIndex].url, '_blank', 'noopener,noreferrer');
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedIndex, socials]);
+
     return (
         <motion.div
             className="full-screen-page"
@@ -134,7 +162,10 @@ const SocialsPage = ({ onBack }) => {
                     {socials.map((social, index) => (
                         <motion.div
                             key={social.platform}
+                            id={`social-${index}`}
                             className="social-link"
+                            style={index === selectedIndex ? { borderColor: '#FF8C00', backgroundColor: 'rgba(26, 26, 26, 0.8)' } : {}}
+                            onMouseEnter={() => setSelectedIndex(index)}
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}

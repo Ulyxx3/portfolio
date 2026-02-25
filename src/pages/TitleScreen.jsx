@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import bgImage from '../assets/background.jpg';
 
 const TitleScreen = ({ onNavigate }) => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
     const menuItems = [
         { id: 'about', label: 'ABOUT' },
         { id: 'projects', label: 'PROJECTS' },
         { id: 'socials', label: 'SOCIALS' },
         { id: 'contact', label: 'CONTACT' },
     ];
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setSelectedIndex((prev) => (prev < menuItems.length - 1 ? prev + 1 : 0));
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setSelectedIndex((prev) => (prev > 0 ? prev - 1 : menuItems.length - 1));
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onNavigate(menuItems[selectedIndex].id);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedIndex, onNavigate, menuItems]);
 
     return (
         <motion.div
@@ -38,8 +58,9 @@ const TitleScreen = ({ onNavigate }) => {
                     {menuItems.map((item, index) => (
                         <motion.button
                             key={item.id}
-                            className="repo-menu-item"
+                            className={`repo-menu-item ${index === selectedIndex ? 'active' : ''}`}
                             onClick={() => onNavigate(item.id)}
+                            onMouseEnter={() => setSelectedIndex(index)}
                             initial={{ x: -30, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}

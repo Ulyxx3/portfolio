@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectsPage = ({ onBack }) => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
     const projects = [
         {
             name: 'VERSUSITE',
@@ -60,6 +62,36 @@ const ProjectsPage = ({ onBack }) => {
         },
     ];
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setSelectedIndex((prev) => {
+                    const next = prev < projects.length - 1 ? prev + 1 : 0;
+                    document.getElementById(`project-${next}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return next;
+                });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setSelectedIndex((prev) => {
+                    const next = prev > 0 ? prev - 1 : projects.length - 1;
+                    document.getElementById(`project-${next}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return next;
+                });
+            } else if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const project = projects[selectedIndex];
+                const link = project.demo || project.github;
+                if (link) {
+                    window.open(link, '_blank', 'noopener,noreferrer');
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedIndex, projects]);
+
     return (
         <motion.div
             className="full-screen-page"
@@ -81,7 +113,10 @@ const ProjectsPage = ({ onBack }) => {
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.name}
+                            id={`project-${index}`}
                             className="project-card"
+                            style={index === selectedIndex ? { borderColor: '#FF8C00', backgroundColor: 'rgba(26, 26, 26, 0.8)', boxShadow: '0 0 20px rgba(255, 140, 0, 0.3)' } : {}}
+                            onMouseEnter={() => setSelectedIndex(index)}
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}

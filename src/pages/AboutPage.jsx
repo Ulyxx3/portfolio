@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import REPOSlider from '../components/REPOSlider';
 
 const AboutPage = ({ onBack }) => {
     const [activeSection, setActiveSection] = useState('bio');
+
+    useEffect(() => {
+        const sections = ['bio', 'skills', 'timeline'];
+        const handleKeyDown = (e) => {
+            const currentIndex = sections.indexOf(activeSection);
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setActiveSection(sections[currentIndex < sections.length - 1 ? currentIndex + 1 : 0]);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setActiveSection(sections[currentIndex > 0 ? currentIndex - 1 : sections.length - 1]);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [activeSection]);
 
     const skills = [
         { name: 'React', level: 70 },
