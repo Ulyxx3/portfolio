@@ -127,17 +127,23 @@ const ProjectsPage = ({ onBack }) => {
                                 <Github size={20} color="#000" />
                             </div>
 
-                            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
                                 {project.github && (
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        style={{ color: '#4169E1', transition: 'color 0.3s' }}
-                                        onMouseEnter={(e) => e.target.style.color = '#FF8C00'}
-                                        onMouseLeave={(e) => e.target.style.color = '#4169E1'}
+                                        style={{ color: '#4169E1', transition: 'all 0.3s ease' }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.color = '#FFFFFF';
+                                            e.currentTarget.style.transform = 'scale(1.1)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.color = '#4169E1';
+                                            e.currentTarget.style.transform = 'scale(1)';
+                                        }}
                                     >
-                                        <Github size={24} />
+                                        <Github size={22} />
                                     </a>
                                 )}
                                 {project.demo && (
@@ -145,11 +151,17 @@ const ProjectsPage = ({ onBack }) => {
                                         href={project.demo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        style={{ color: '#4169E1', transition: 'color 0.3s' }}
-                                        onMouseEnter={(e) => e.target.style.color = '#FF8C00'}
-                                        onMouseLeave={(e) => e.target.style.color = '#4169E1'}
+                                        style={{ color: '#4169E1', transition: 'all 0.3s ease' }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.color = '#FFFFFF';
+                                            e.currentTarget.style.transform = 'scale(1.1)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.color = '#4169E1';
+                                            e.currentTarget.style.transform = 'scale(1)';
+                                        }}
                                     >
-                                        <ExternalLink size={24} />
+                                        <ExternalLink size={22} />
                                     </a>
                                 )}
                             </div>
