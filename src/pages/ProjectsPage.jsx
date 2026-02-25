@@ -40,6 +40,24 @@ const ProjectsPage = ({ onBack }) => {
             demo: null,
             color: '#9370DB'
         },
+        {
+            name: 'OFFSHADES',
+            description: 'Shader pack for Minecraft',
+            completion: 100,
+            tech: ['GLSL'],
+            github: 'https://github.com/Ulyxx3/OffShades',
+            demo: null,
+            color: '#00FA9A'
+        },
+        {
+            name: 'OBS STREAMMUSICVIEWER',
+            description: 'Local extension for OBS for displaying your actual music with Windows Media Control',
+            completion: 100,
+            tech: ['Python', 'HTML', 'CSS', 'C#', 'PowerShell'],
+            github: 'https://github.com/Ulyxx3/OBS-StreamMusicViewer',
+            demo: null,
+            color: '#FFD700'
+        },
     ];
 
     return (
