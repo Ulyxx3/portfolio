@@ -11,7 +11,7 @@ const ProjectsPage = ({ onBack }) => {
             tech: ['React', 'JavaScript', 'CSS'],
             github: 'https://github.com/Ulyxx3/VersuSite',
             demo: 'https://ulyxx3.github.io/VersuSite/',
-            color: '#FF8C00'
+            color: null
         },
         {
             name: 'POKEDEXIA',
@@ -20,7 +20,7 @@ const ProjectsPage = ({ onBack }) => {
             tech: ['JavaScript', 'HTML', 'CSS'],
             github: 'https://github.com/Ulyxx3/Pokedexia',
             demo: 'https://ulyxx3.github.io/Pokedexia/',
-            color: '#00FF00'
+            color: null
         },
         {
             name: 'PORTFOLIO R.E.P.O.',
@@ -29,7 +29,7 @@ const ProjectsPage = ({ onBack }) => {
             tech: ['React', 'Framer Motion', 'CSS'],
             github: 'https://github.com/Ulyxx3/portfolio',
             demo: 'https://ulyxx3.github.io/portfolio/',
-            color: '#4169E1'
+            color: null
         },
         {
             name: 'CLIMBING GAMBLING',
@@ -38,7 +38,7 @@ const ProjectsPage = ({ onBack }) => {
             tech: ['Godot', 'GDScript'],
             github: null,
             demo: null,
-            color: '#9370DB'
+            color: null
         },
         {
             name: 'OFFSHADES',
@@ -47,7 +47,7 @@ const ProjectsPage = ({ onBack }) => {
             tech: ['GLSL'],
             github: 'https://github.com/Ulyxx3/OffShades',
             demo: null,
-            color: '#00FA9A'
+            color: null
         },
         {
             name: 'OBS STREAM_MUSIC_VIEWER',
@@ -56,7 +56,7 @@ const ProjectsPage = ({ onBack }) => {
             tech: ['Python', 'HTML', 'CSS', 'C#', 'PowerShell'],
             github: 'https://github.com/Ulyxx3/OBS-StreamMusicViewer',
             demo: null,
-            color: '#FFD700'
+            color: null
         },
     ];
 
