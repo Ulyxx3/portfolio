@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import BackgroundEffects from './components/BackgroundEffects';
 import TitleScreen from './pages/TitleScreen';
@@ -17,6 +17,17 @@ function App() {
   const handleBack = () => {
     setCurrentView('home');
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && currentView !== 'home') {
+        handleBack();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentView]);
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
