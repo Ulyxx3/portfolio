@@ -70,6 +70,15 @@ const ProjectsPage = ({ onBack }) => {
             color: null
         },
         {
+            name: 'OSMV site',
+            description: 'Site for the OSMV extension',
+            completion: 100,
+            tech: ['HTML', 'JavaScript', 'CSS'],
+            github: 'https://github.com/StreamMusicViewer/site',
+            demo: 'https://streammusicviewer.github.io/site/',
+            color: null
+        },
+        {
             name: 'Dark Patterns',
             description: 'Website made for a school project showcasing Dark Patterns',
             completion: 100,
