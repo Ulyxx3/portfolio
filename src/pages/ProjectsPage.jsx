@@ -52,12 +52,30 @@ const ProjectsPage = ({ onBack }) => {
             color: null
         },
         {
-            name: 'OBS STREAM_MUSIC_VIEWER',
+            name: 'OSMV lite',
             description: 'Local extension for OBS for displaying your actual music with Windows Media Control',
             completion: 100,
-            tech: ['Python', 'HTML', 'CSS', 'C#', 'PowerShell'],
-            github: 'https://github.com/Ulyxx3/OBS-StreamMusicViewer',
-            demo: null,
+            tech: ['HTML', 'JavaScript', 'CSS', 'C#', 'PowerShell'],
+            github: 'https://github.com/StreamMusicViewer/OSMV-lite',
+            demo: 'https://streammusicviewer.github.io/site/',
+            color: null
+        },
+        {
+            name: 'OSMV',
+            description: 'Extension for OBS for displaying your actual music with Windows Media Control in OBS with an audio visualizer and more',
+            completion: 70,
+            tech: ['JavaScript', 'HTML', 'CSS', 'C++', 'PowerShell'],
+            github: 'https://github.com/StreamMusicViewer/OSMV',
+            demo: 'https://streammusicviewer.github.io/site/',
+            color: null
+        },
+        {
+            name: 'Dark Patterns',
+            description: 'Website made for a school project showcasing Dark Patterns',
+            completion: 100,
+            tech: ['JavaScript', 'HTML', 'CSS', 'PHP', 'MySQL'],
+            github: 'https://github.com/Ulyxx3/DarkPatterns',
+            demo: 'https://ulyxx3.github.io/DarkPatterns/',
             color: null
         },
     ];
