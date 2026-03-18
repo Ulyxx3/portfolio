@@ -9,7 +9,7 @@ const TitleScreen = ({ onNavigate }) => {
         { id: 'about', label: 'ABOUT' },
         { id: 'projects', label: 'PROJECTS' },
         { id: 'socials', label: 'SOCIALS' },
-        { id: 'contact', label: 'CONTACT' },
+        { id: 'contact', label: 'CONTACT (N/A)' },
     ];
 
     useEffect(() => {
