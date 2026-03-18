@@ -79,6 +79,15 @@ const ProjectsPage = ({ onBack }) => {
             color: null
         },
         {
+            name: 'ani-cli-fr',
+            description: 'ani-cli fork for french sub/dub',
+            completion: 100,
+            tech: ['Shell', 'Python'],
+            github: 'https://github.com/Ulyxx3/ani-cli-fr',
+            demo: null,
+            color: null
+        },
+        {
             name: 'Dark Patterns',
             description: 'Website made for a school project showcasing Dark Patterns',
             completion: 100,
