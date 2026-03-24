@@ -64,7 +64,7 @@ const ProjectsPage = ({ onBack }) => {
             name: 'OSMV',
             description: 'Extension for OBS for displaying your actual music with Windows Media Control in OBS with an audio visualizer and more',
             completion: 70,
-            tech: ['JavaScript', 'HTML', 'CSS', 'C++', 'PowerShell'],
+            tech: ['JavaScript', 'HTML', 'CSS', 'Rust', 'PowerShell'],
             github: 'https://github.com/StreamMusicViewer/OSMV',
             demo: 'https://streammusicviewer.github.io/site/',
             color: null
