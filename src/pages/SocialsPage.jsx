@@ -87,8 +87,8 @@ const SocialsPage = ({ onBack }) => {
         },
         {
             platform: 'BLUESKY',
-            handle: '@ulyxx3.bsky.social',
-            url: 'https://bsky.app/profile/ulyxx3.bsky.social',
+            handle: '@ulyx.bsky.social',
+            url: 'https://bsky.app/profile/ulyx.bsky.social',
             icon: SiBluesky,
             status: 'ACTIVE'
         },
