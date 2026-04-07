@@ -96,6 +96,15 @@ const ProjectsPage = ({ onBack }) => {
             demo: 'https://ulyxx3.github.io/DarkPatterns/',
             color: null
         },
+        {
+            name: 'antmap',
+            description: 'GPS that use ACO algorithm to find the shortest path',
+            completion: 100,
+            tech: ['Rust'],
+            github: 'https://github.com/Ulyxx3/antmap',
+            demo: null,
+            color: null
+        },
     ];
 
     useEffect(() => {
